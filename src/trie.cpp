@@ -12,7 +12,8 @@ shmemdss::strtrie<T>::strtrie(trienode<T>* node, int Size)
     : strtrie(node)
 {
     size = Size;
-    nextInd = 2;
+    if(!nextInd)
+        nextInd = 2;
 }
 
 
