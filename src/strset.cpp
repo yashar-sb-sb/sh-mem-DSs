@@ -2,7 +2,7 @@
 
 
 shmemdss::strset::strset(trienode* node)
-    : size(node->next[0].first), nextInd(node->next[1].first), head(node+1)
+    : size(node->next[0]), nextInd(node->next[1]), head(node+1)
 {}
 
 
@@ -12,4 +12,20 @@ shmemdss::strset::strset(trienode* node, int Size)
 {
     size = Size;
     nextInd = 2;
+}
+
+
+int shmemdss::strset::insert(std::string str)
+{
+    int cur = 0;
+    for(char i:str)
+    {
+        if(!head[cur].next[int(i)])
+        {
+            head[cur].next[int(i)] = nextInd++;
+        }
+        cur = head[cur].next[int(i)];
+    }
+    head[cur].has = true;
+    return 0;
 }
