@@ -4,7 +4,8 @@ namespace shmemdss
 {
     struct trienode
     {
-        std::pair<int,bool> next[256];
+        bool has = false;
+        int next[256];
     };
 
     class strset
