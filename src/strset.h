@@ -4,14 +4,20 @@ namespace shmemdss
 {
     struct trienode
     {
-        int data[256];
-    }
+        std::pair<int,bool> next[256];
+    };
+
     class strset
     {
-        int size;
-        int last;
+        int &size;
+        int &nextInd;
         trienode* head;
-        bool has(std::string);
-        bool insert(std::string);
-    }
+        strset(trienode *);
+    public:
+        strset();
+        strset(trienode *, int); //clean
+        int has(std::string);
+        int insert(std::string);
+        int remove(std::string);
+    };
 }
