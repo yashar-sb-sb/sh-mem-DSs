@@ -17,7 +17,7 @@ namespace shmemdss
     public:
         strset();
         strset(trienode *, int); //clean
-        int has(std::string);
+        bool has(std::string);
         int insert(std::string);
         int remove(std::string);
     };
