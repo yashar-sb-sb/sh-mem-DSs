@@ -29,3 +29,16 @@ int shmemdss::strset::insert(std::string str)
     head[cur].has = true;
     return 0;
 }
+
+
+bool shmemdss::strset::has(std::string str)
+{
+    int cur = 0;
+    for(char i:str)
+    {
+        if(!head[cur].next[int(i)])
+            return false;
+        cur = head[cur].next[int(i)];
+    }
+    return head[cur].has;
+}
