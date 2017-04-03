@@ -42,3 +42,22 @@ bool shmemdss::strset::has(std::string str)
     }
     return head[cur].has;
 }
+
+
+
+int shmemdss::strset::remove(std::string str)
+{
+    int cur = 0;
+    for(char i:str)
+    {
+        if(!head[cur].next[int(i)])
+            return 1; //it does not exits in the trie.
+        cur = head[cur].next[int(i)];
+    }
+    if(head[cur].has)
+    {
+        head[cur].has = false;
+        return 0;
+    }
+    return 1; //it does not exits in the trie.
+}
