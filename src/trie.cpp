@@ -1,21 +1,21 @@
-#include "strset.h"
+#include "trie.hpp"
 
 
-shmemdss::strset::strset(trienode* node)
+shmemdss::strtrie::strtrie(trienode* node)
     : size(node->next[0]), nextInd(node->next[1]), head(node+1)
 {}
 
 
 //clean
-shmemdss::strset::strset(trienode* node, int Size)
-    : strset(node)
+shmemdss::strtrie::strtrie(trienode* node, int Size)
+    : strtrie(node)
 {
     size = Size;
     nextInd = 2;
 }
 
 
-int shmemdss::strset::insert(std::string str)
+int shmemdss::strtrie::insert(std::string str)
 {
     int cur = 0;
     for(char i:str)
@@ -31,7 +31,7 @@ int shmemdss::strset::insert(std::string str)
 }
 
 
-bool shmemdss::strset::has(std::string str)
+bool shmemdss::strtrie::has(std::string str)
 {
     int cur = 0;
     for(char i:str)
@@ -45,7 +45,7 @@ bool shmemdss::strset::has(std::string str)
 
 
 
-int shmemdss::strset::remove(std::string str)
+int shmemdss::strtrie::remove(std::string str)
 {
     int cur = 0;
     for(char i:str)

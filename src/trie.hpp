@@ -8,15 +8,15 @@ namespace shmemdss
         int next[256];
     };
 
-    class strset
+    class strtrie
     {
         int &size;
         int &nextInd;
         trienode* head;
-        strset(trienode *);
+        strtrie(trienode *);
     public:
-        strset();
-        strset(trienode *, int); //clean
+        strtrie();
+        strtrie(trienode *, int); //clean
         bool has(std::string);
         int insert(std::string);
         int remove(std::string);
