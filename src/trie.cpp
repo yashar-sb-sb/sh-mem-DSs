@@ -49,6 +49,37 @@ bool shmemdss::strtrie<T>::has(std::string str)
 
 
 template<typename T>
+void shmemdss::strtrie<T>::set(std::string str, T & DATA)
+{
+    int cur = 0;
+    for(char i:str)
+    {
+        if(!head[cur].next[int(i)])
+        {
+            head[cur].next[int(i)] = nextInd++;
+        }
+        cur = head[cur].next[int(i)];
+    }
+    head[cur].data = DATA;
+}
+
+
+
+template<typename T>
+T shmemdss::strtrie<T>::get(std::string str)
+{
+    int cur = 0;
+    for(char i:str)
+    {
+        if(!head[cur].next[int(i)])
+        {
+            head[cur].next[int(i)] = nextInd++;
+        }
+        cur = head[cur].next[int(i)];
+    }
+    return head[cur].data;
+}
+template<typename T>
 int shmemdss::strtrie<T>::remove(std::string str)
 {
     int cur = 0;
