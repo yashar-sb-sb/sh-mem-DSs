@@ -21,6 +21,8 @@ namespace shmemdss
         strtrie();
         strtrie(trienode<T> *, int); //clean
         bool has(std::string);
+        void set(std::string, T &);
+        T get(std::string);
         int insert(std::string);
         int remove(std::string);
     };
