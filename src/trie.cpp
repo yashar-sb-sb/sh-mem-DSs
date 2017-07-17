@@ -1,13 +1,14 @@
 #include "trie.hpp"
 
-
-shmemdss::strtrie::strtrie(trienode* node)
+template<typename T>
+shmemdss::strtrie<T>::strtrie(trienode<T>* node)
     : size(node->next[0]), nextInd(node->next[1]), head(node+1)
 {}
 
 
 //clean
-shmemdss::strtrie::strtrie(trienode* node, int Size)
+template<typename T>
+shmemdss::strtrie<T>::strtrie(trienode<T>* node, int Size)
     : strtrie(node)
 {
     size = Size;
@@ -15,7 +16,8 @@ shmemdss::strtrie::strtrie(trienode* node, int Size)
 }
 
 
-int shmemdss::strtrie::insert(std::string str)
+template<typename T>
+int shmemdss::strtrie<T>::insert(std::string str)
 {
     int cur = 0;
     for(char i:str)
@@ -31,7 +33,8 @@ int shmemdss::strtrie::insert(std::string str)
 }
 
 
-bool shmemdss::strtrie::has(std::string str)
+template<typename T>
+bool shmemdss::strtrie<T>::has(std::string str)
 {
     int cur = 0;
     for(char i:str)
@@ -45,7 +48,8 @@ bool shmemdss::strtrie::has(std::string str)
 
 
 
-int shmemdss::strtrie::remove(std::string str)
+template<typename T>
+int shmemdss::strtrie<T>::remove(std::string str)
 {
     int cur = 0;
     for(char i:str)
