@@ -1,3 +1,5 @@
+#ifndef TRIE_TEMPLATE
+#define TRIE_TEMPLATE
 #include <string>
 
 namespace shmemdss
@@ -27,3 +29,5 @@ namespace shmemdss
         int remove(std::string);
     };
 }
+#include "trie.cpp"
+#endif /* ifndef TRIE_TEMPLATE */
